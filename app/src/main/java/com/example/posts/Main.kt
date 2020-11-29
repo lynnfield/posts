@@ -11,15 +11,17 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     private val mockLikesSource = MockLikesSource()
+    private val mockCommentSource = MockCommentSource()
 
     private val androidLikesView by lazy { AndroidLikesView(this) }
+    private val androidCommentView by lazy { AndroidCommentView(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(androidLikesView, ViewGroup.LayoutParams(WRAP_CONTENT, WRAP_CONTENT))
+        setContentView(androidCommentView, ViewGroup.LayoutParams(WRAP_CONTENT, WRAP_CONTENT))
 
         lifecycleScope.launch {
-            mockLikesSource().collect { androidLikesView(it) }
+            mockCommentSource().collect { androidCommentView(it) }
         }
     }
 }
