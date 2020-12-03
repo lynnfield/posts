@@ -14,7 +14,7 @@
         app:srcCompat="@drawable/ic_favorite_24" />
 
     <TextView
-        android:id="@+id/likes_count_view"
+        android:id="@+id/likesCountView"
         android:layout_width="32dp"
         android:layout_height="match_parent"
         android:layout_marginStart="4dp"

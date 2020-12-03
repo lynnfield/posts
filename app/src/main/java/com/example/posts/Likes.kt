@@ -3,7 +3,7 @@ package com.example.posts
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.LinearLayout
-import android.widget.TextView
+import kotlinx.android.synthetic.main.view_likes.view.*
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -54,12 +54,10 @@ class AndroidLikesView @JvmOverloads constructor(
     LikesView {
 
     private var likes: Likes? = null
-    private val likesCountView: TextView
 
     init {
         orientation = HORIZONTAL
         inflate(context, R.layout.view_likes, this)
-        likesCountView = findViewById(R.id.likes_count_view)
     }
 
     override fun invoke(likes: Likes) = synchronized(this) {

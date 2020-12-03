@@ -51,16 +51,26 @@ class AndroidCommentView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : AppCompatTextView(context, attrs, defStyleAttr), CommentView {
 
+    init {
+        if (isInEditMode) {
+            render(Comment.invoke("stub comment")!!)
+        }
+    }
+
     private var comment: Comment? = null
 
     override fun invoke(comment: Comment) = synchronized(this) {
         if (this.comment != comment) {
             this.comment = comment
-            post { text = render(comment) }
+            post { render(comment) }
         }
     }
 
-    private fun render(comment: Comment): CharSequence = comment.text
+    private fun render(comment: Comment) {
+        text = comment.asText()
+    }
+
+    private fun Comment.asText(): CharSequence = text
 }
 
 class MockCommentSource(
