@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Posts</string>
     <string name="likes_icon">likes\' icon</string>
+    <string name="post_image">post\'s image</string>
 </resources>
